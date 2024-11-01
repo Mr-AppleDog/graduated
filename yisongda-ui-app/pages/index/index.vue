@@ -1,15 +1,20 @@
 <template>
 	<view>
-		<h1>首页</h1>
+		<!-- 自定义导航栏 -->
+		<CustomNavbarVue></CustomNavbarVue>
 	</view>
 </template>
 
 <script>
+	import CustomNavbarVue from './components/CustomNavbar.vue'
 	export default {
 		data() {
 			return {
 				
 			}
+		},
+		components:{
+			CustomNavbarVue
 		},
 		methods: {
 			
