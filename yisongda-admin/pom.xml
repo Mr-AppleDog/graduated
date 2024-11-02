@@ -61,6 +61,12 @@
             <artifactId>yisongda-generator</artifactId>
         </dependency>
 
+        <!-- 商城-->
+        <dependency>
+            <groupId>com.yisongda</groupId>
+            <artifactId>yisongda-mall</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

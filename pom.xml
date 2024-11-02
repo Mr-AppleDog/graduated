@@ -182,6 +182,13 @@
                 <version>${yisongda.version}</version>
             </dependency>
 
+            <!-- 商城模块-->
+            <dependency>
+                <groupId>com.yisongda</groupId>
+                <artifactId>yisongda-mall</artifactId>
+                <version>${yisongda.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -192,6 +199,7 @@
         <module>yisongda-quartz</module>
         <module>yisongda-generator</module>
         <module>yisongda-common</module>
+        <module>yisongda-mall</module>
     </modules>
     <packaging>pom</packaging>
 
