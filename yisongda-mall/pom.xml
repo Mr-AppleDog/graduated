@@ -18,6 +18,12 @@
             <artifactId>yisongda-common</artifactId>
         </dependency>
 
+
+        <!-- 核心工具-->
+        <dependency>
+            <groupId>com.yisongda</groupId>
+            <artifactId>yisongda-framework</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
