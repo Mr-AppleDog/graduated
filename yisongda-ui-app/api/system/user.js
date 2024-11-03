@@ -39,3 +39,11 @@ export function uploadAvatar(data) {
     filePath: data.filePath
   })
 }
+
+// 测试
+export function testDome() {
+  return request({
+    url: '/mall/testDome/list',
+    method: 'get'
+  })
+}

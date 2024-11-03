@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yisongda.mall.mapper.TestDomeMapper">
+    
+    <resultMap type="TestDome" id="TestDomeResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="number"    column="number"    />
+    </resultMap>
+
+    <sql id="selectTestDomeVo">
+        select id, title, number from test
+    </sql>
+
+    <select id="selectTestDomeList" parameterType="TestDome" resultMap="TestDomeResult">
+        <include refid="selectTestDomeVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="number != null "> and number = #{number}</if>
+        </where>
+    </select>
+    
+    <select id="selectTestDomeById" parameterType="Long" resultMap="TestDomeResult">
+        <include refid="selectTestDomeVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertTestDome" parameterType="TestDome">
+        insert into test
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="number != null">number,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="number != null">#{number},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTestDome" parameterType="TestDome">
+        update test
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">title = #{title},</if>
+            <if test="number != null">number = #{number},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTestDomeById" parameterType="Long">
+        delete from test where id = #{id}
+    </delete>
+
+    <delete id="deleteTestDomeByIds" parameterType="String">
+        delete from test where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
